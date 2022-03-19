@@ -1,0 +1,145 @@
+body {
+  margin-top: 10px;
+  margin-bottom: 10px;
+  margin-left: 60px;
+  margin-right: 60px;
+}
+
+.products-list div {
+  float: left;
+  margin-bottom: 2%;
+  margin-right: 2%;
+  width: 23.5%;
+  border: 1px solid black;
+  border-radius: 5%;
+}
+
+.products-list div :not(.card-checkbox) {
+  text-align: center;
+}
+
+.products-list div:nth-child(4n) {
+  margin-right: 0;
+}
+
+.products-list div .card-name {
+  font-weight: bold;
+  font-size: 18px;
+}
+
+.products-list div .card-date {
+  color: grey;
+  font-size: 14px;
+}
+
+.products-list div .card-checkbox {
+  margin-left: 20px;
+  margin-top: 10px;
+}
+
+.page-header {
+  width: 100%;
+  height: 50px;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-flow: row;
+          flex-flow: row;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin-top: 2%;
+  gap: 65%;
+}
+
+.page-header .header-title {
+  width: 300px;
+  font-weight: bold;
+  font-size: 30px;
+}
+
+.page-header .header-buttons {
+  width: 100%;
+  height: 50px;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-flow: row;
+          flex-flow: row;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin-top: 2%;
+  gap: 10%;
+  width: 15%;
+  margin-bottom: 2%;
+}
+
+.input-style {
+  width: 100%;
+  height: 50px;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-flow: row;
+          flex-flow: row;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin-top: 2%;
+  gap: 2%;
+  width: 35%;
+}
+
+.input-style label {
+  width: 35%;
+}
+
+.input-style label {
+  font-weight: bold;
+}
+
+.no-products {
+  width: 100%;
+  font-weight: bold;
+  margin-top: 15%;
+  text-align: center;
+}
+
+.dropdown {
+  margin-top: 20px;
+  margin-left: 10%;
+  margin-right: 10%;
+  width: 25%;
+  position: relative;
+  display: inline-block;
+  border: 1px solid grey;
+  padding: .2%;
+  border-radius: 35px;
+  text-align: center;
+}
+
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+
+.dropdown .dropdown-item {
+  font-weight: bold;
+}
+
+footer {
+  clear: both;
+  position: relative;
+  margin-top: 2%;
+  margin-bottom: 1%;
+  width: 100%;
+  text-align: center;
+  bottom: 0;
+}
+/*# sourceMappingURL=main.css.map */

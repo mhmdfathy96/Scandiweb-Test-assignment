@@ -1,0 +1,107 @@
+
+@import "./variables/dimensions" ;
+@import "./mixin/mixin";
+
+body{
+  margin-top: $margin-ver;
+  margin-bottom: $margin-ver;
+  margin-left: $margin-hor;
+  margin-right: $margin-hor;
+}
+
+
+//  .products-list div{
+//    @include grid(4,2%);
+//    div{
+//      width: 100%;
+//      text-align: center;
+//    }
+//  }
+
+.products-list div{
+    @include grid(4,2%);
+    .card-name{ 
+      font-weight: bold;
+      font-size: 18px;
+    }
+    .card-date{
+      color: grey;
+      font-size: 14px;
+    }
+    .card-checkbox{
+      margin-left: 20px;
+      margin-top: 10px;
+    }
+  }
+
+ .page-header { ////done
+  @include row(65%);
+  .header-title{
+    width: 300px;
+    font-weight: bold;
+    font-size: 30px;
+  }
+  .header-buttons{
+    @include row(10%);
+    width: 15%;
+    margin-bottom: 2%;
+  }
+ }
+
+ .input-style{
+   @include row(2%);
+   label{
+     width: 35%;
+   }
+      width: 35%;
+      label{
+        font-weight: bold;
+      }
+ }
+
+.no-products{
+  width: 100%;
+  font-weight: bold;
+  margin-top: 15%;
+  text-align: center;
+}
+
+.dropdown {
+  margin-top: 20px;
+  margin-left: 10%;
+  margin-right: 10%;
+  width: 25%;
+  position: relative;
+  display: inline-block;
+  border: 1px solid grey;
+  padding: .2%;
+  border-radius: 35px;
+  text-align: center;
+   &:hover .dropdown-content{
+     display: block;
+   }
+  .dropdown-item{
+    font-weight: bold;
+  }
+}
+
+footer {
+    clear: both;
+     position: relative;
+    margin-top: 2%;
+    margin-bottom: 1%;
+    width: 100%;
+    text-align: center;
+     bottom: 0;
+  }
+
+
+// footer {
+//   clear: both;
+//   position: fixed;
+//   margin-top: -1%;
+//   margin-bottom: 1%;
+//   width: 100%;
+//   text-align: center;
+//   bottom: 0;
+// }
