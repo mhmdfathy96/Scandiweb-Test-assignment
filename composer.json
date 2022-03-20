@@ -1,16 +1,15 @@
 {
     "name": "mhmdf/scandi-products-project",
-
+    "autoload": {
+        "psr-4": {
+            "app\\": "./"
+        }
+    },
     "authors": [
         {
             "name": "mhmdfathy96",
             "email": "mhmdfathy96@gmail.com"
         }
     ],
-    "require": {},
-    "autoload": {
-        "psr-4": {
-            "app\\": "./"
-        }
-    }
+    "require": {}
 }

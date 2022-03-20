@@ -2,8 +2,8 @@
 
 namespace app\bussinessLayer;
 
-use app\bussinessLayer\Database\productDatabase;
-use app\model\ProductModel;
+use \app\bussinessLayer\Database\productDatabase;
+use \app\model\ProductModel;
 
 class ProductBussinessLayer implements IBussinessLayer
 {
@@ -47,12 +47,12 @@ class ProductBussinessLayer implements IBussinessLayer
         $productModel->setSKU($productJson['SKU']);
         $productModel->setName($productJson['Name']);
         $productModel->setPrice($productJson['Price']);
-        $productModel->setDate($productJson['Date'] ?? date("Y-m-d H:i:s"));
-        $productModel->setSize($productJson['Size']);
-        $productModel->setWeight($productJson['Weight']);
-        $productModel->setHeight($productJson['Height']);
-        $productModel->setWidth($productJson['Width']);
-        $productModel->setLength($productJson['Length']);
+        $productModel->setDate(date("Y-m-d H:i"));
+        $productModel->setSize(($productJson['Size']=='')?null:$productJson['Size']);
+        $productModel->setWeight(($productJson['Weight']=='')?null:$productJson['Weight']);
+        $productModel->setHeight(($productJson['Height']=='')?null:$productJson['Height']);
+        $productModel->setWidth(($productJson['Width']=='')?null:$productJson['Width']);
+        $productModel->setLength(($productJson['Length']=='')?null:$productJson['Length']);
         return $productModel;
     }
 

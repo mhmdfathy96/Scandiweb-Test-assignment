@@ -2,11 +2,12 @@
 
 namespace app\controllers;
 
-use app\bussinessLayer\logic\CommonLogic;
+use \app\bussinessLayer\logic\CommonLogic;
 
 class Router
 {
     public static $router;
+    private $notFound;
     private $getRoutes = [];
     private $postRoutes = [];
 
@@ -26,22 +27,31 @@ class Router
         $this->postRoutes[$url] = $fn;
     }
 
+    public function addNotFound($notFoundHandler)
+    {
+        $this->notFound = $notFoundHandler;
+    }
+
     public function resolve()
     {
-        $currentUrl = $_SERVER['PATH_INFO'] ?? '/';
-        $method = $_SERVER['REQUEST_METHOD'] ?? '/';
+        $requestURI = parse_url($_SERVER['REQUEST_URI']);
+        $requestPath = $requestURI['path'];
+        $method = $_SERVER['REQUEST_METHOD'];
         if ($method === 'GET') {
-            $fn = $this->getRoutes[$currentUrl] ?? null;
+            $fn = $this->getRoutes[$requestPath] ?? null;
         } else {
-            $fn = $this->postRoutes[$currentUrl] ?? null;
+            $fn = $this->postRoutes[$requestPath] ?? null;
         }
 
         if ($fn) {
             $callback = CommonLogic::fromNonToStatic($fn); ///$fn was returning an array also but index 0 was a string not an object
-            call_user_func($callback, $this);
         } else {
-            echo "Page not found";
+            header("HTTP/1.0 404 Not Found");
+            if (!empty($this->notFound)) {
+                $callback = $this->notFound;
+            }
         }
+        call_user_func($callback, $this);
     }
 
     public function renderView($view, $params = [])

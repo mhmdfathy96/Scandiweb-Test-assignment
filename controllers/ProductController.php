@@ -2,7 +2,8 @@
 
 namespace app\controllers;
 
-use app\bussinessLayer\ProductBussinessLayer;
+use \app\controllers\IController;
+use \app\bussinessLayer\ProductBussinessLayer;
 
 class ProductController implements IController
 {

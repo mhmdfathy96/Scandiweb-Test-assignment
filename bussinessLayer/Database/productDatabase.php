@@ -17,9 +17,9 @@ class productDatabase
     private function initConnection(){
         $host = 'localhost';
         $port = 3306;
-        $dbName = "productdb";
-        $username='root';
-        $password='';
+        $dbName = "productdb"; //id18643217_productdb
+        $username='root';    //dbuser //id18643217_dbuser
+        $password='';          //S*s]~)<y?W&b<y9N
         $this->pdo = new PDO("mysql:host=$host;port=$port;dbname=$dbName", $username, $password);
         $this->pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
     }
@@ -44,14 +44,14 @@ class productDatabase
         $statement->bindValue(':sku', $productModel->getSKU());
         $statement->bindValue(':name', $productModel->getName());
         $statement->bindValue(':price', $productModel->getPrice());
-        $statement->bindValue(':date', $productModel->getDate());
+        $statement->bindValue(':date', date('Y-m-d H:i'));
         $statement->bindValue(':size', $productModel->getSize());
         $statement->bindValue(':weight', $productModel->getWeight());
         $statement->bindValue(':height', $productModel->getHeight());
         $statement->bindValue(':width', $productModel->getWidth());
         $statement->bindValue(':length', $productModel->getLength());
         $statement->execute();
-        return $statement->fetchAll(PDO::FETCH_ASSOC);
+       // return $statement->fetchAll(PDO::FETCH_ASSOC);
     }
 
     public function deleteProduct($SKU)
@@ -59,6 +59,6 @@ class productDatabase
         $statement = $this->pdo->prepare('delete from products where SKU =:sku');
         $statement->bindValue(':sku', $SKU);
         $statement->execute();
-        return $statement->fetchAll(PDO::FETCH_ASSOC);
+        //return $statement->fetchAll(PDO::FETCH_ASSOC);
     }
 }
